@@ -69,9 +69,9 @@ model:
   text_tokenizer:
     _target_: nemo.collections.tts.torch.tts_tokenizers.EnglishPhonemesTokenizer
     punct: true
-    stresses: false
+    stresses: true
     chars: true
-    apostrophe: false
+    apostrophe: true
     pad_with_space: true
     g2p:
       _target_: nemo.collections.tts.torch.g2ps.EnglishG2p
