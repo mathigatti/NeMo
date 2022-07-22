@@ -27,7 +27,9 @@ lowfreq: 0
 highfreq: 8000
 window: hann
 
-phoneme_dict_path: "scripts/tts_dataset_files/cmudict-0.7b_nv22.07"
+phoneme_dict_path: "scripts/tts_dataset_files/cmudict-0.7b_nv22.01"
+heteronyms_path: "scripts/tts_dataset_files/heteronyms-030921"
+whitelist_path: "nemo_text_processing/text_normalization/en/data/whitelist/lj_speech.tsv"
 
 model:
   learn_alignment: true
@@ -57,6 +59,7 @@ model:
     _target_: nemo_text_processing.text_normalization.normalize.Normalizer
     lang: es
     input_case: cased
+    whitelist: ${whitelist_path}
 
   text_normalizer_call_kwargs:
     verbose: false
@@ -73,6 +76,7 @@ model:
     g2p:
       _target_: nemo.collections.tts.torch.g2ps.EnglishG2p
       phoneme_dict: ${phoneme_dict_path}
+      heteronyms: ${heteronyms_path}
       phoneme_probability: 1.0
 
   train_ds:
