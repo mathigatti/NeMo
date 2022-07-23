@@ -162,12 +162,7 @@ class CMUDict:
 
   def lookup(self, word):
     '''Converts word to spainsh adapted ARPAbet'''
-
-    # Apply it only on words, keep punctuation unchanged
-    for match in re.findall(r"[A-Za-zÀ-ÿ]+", word):
-      word = word.replace(match, self.word2phonemes(match))
-
-    return word
+    return self.word2phonemes(word)
 
 class BaseG2p(abc.ABC):
     def __init__(
@@ -319,6 +314,10 @@ class EnglishG2p(BaseG2p):
         if self.phoneme_probability is not None and self._rng.random() > self.phoneme_probability:
             return word, True
 
+        # Punctuation (assumes other chars have been stripped)
+        if re.search(r"[A-Za-zÀ-ÿ]", word) is None:
+            return list(word), True
+
         return self.espeak.lookup(word), True
 
     def __call__(self, text):
@@ -345,3 +344,4 @@ class EnglishG2p(BaseG2p):
             prons.extend(pron)
 
         return prons
+
