@@ -40,7 +40,7 @@ valid_symbols = [
   'EY0', 'EY1', 'EY2', 'F', 'G', 'HH', 'IH', 'IH0', 'IH1', 'IH2', 'IY', 'IY0', 'IY1',
   'IY2', 'JH', 'K', 'L', 'M', 'N', 'NG', 'OW', 'OW0', 'OW1', 'OW2', 'OY', 'OY0',
   'OY1', 'OY2', 'P', 'R', 'S', 'SH', 'T', 'TH', 'UH', 'UH0', 'UH1', 'UH2', 'UW',
-  'UW0', 'UW1', 'UW2', 'V', 'W', 'Y', 'Z', 'ZH'
+  'UW0', 'UW1', 'UW2', 'V', 'W', 'Y', "RR", "NI"
 ]
 
 # IPA to ARPABET
@@ -103,8 +103,8 @@ spanish_replacements = {
     "o": "OW0",
     "β": "V",
     "e": "EY0",
-    "ɲ": "Z",
-    "r": "ZH",
+    "ɲ": "NI",
+    "r": "RR",
     "ɣ": "G",
     "ʎ": "SH",
     "x": "HH",
