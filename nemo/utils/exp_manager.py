@@ -78,7 +78,7 @@ class CallbackParams:
     prefix: Optional[str] = None  # If None, exp_manager will attempt to handle the filepath
     postfix: str = ".nemo"
     save_best_model: bool = False
-    always_save_nemo: bool = False
+    always_save_nemo: bool = True
     save_nemo_on_train_end: Optional[bool] = True  # Whether to automatically save .nemo file durin on_train_end hook
     model_parallel_size: Optional[int] = None  # tensor parallel size * pipeline parallel size
 
@@ -682,7 +682,7 @@ class NeMoModelCheckpoint(ModelCheckpoint):
 
     def __init__(
         self,
-        always_save_nemo=False,
+        always_save_nemo=True,
         save_nemo_on_train_end=True,
         save_best_model=False,
         postfix=".nemo",
