@@ -33,7 +33,7 @@ SYNOGLYPH2ASCII = {g: asc for asc, glyphs in _synoglyphs.items() for g in glyphs
 # config file must contain |EY1 EY1|, B, C, D, E, F, and G.
 # 111111311113111131111111322222222233133133133133133111313
 # _WORDS_RE = re.compile("([a-zA-Z]+(?:[a-zA-Z-']*[a-zA-Z]+)*)|(\|[^|]*\|)|([^a-zA-Z|]+)")
-_WORDS_RE = re.compile("([A-Za-zÀ-ÿ]+(?:[A-Za-zÀ-ÿ-']*[A-Za-zÀ-ÿ]+)*)|(\|[^|]*\|)|([^a-zA-Z|]+)")
+_WORDS_RE = re.compile("([A-Za-zÀ-ÿ]+(?:[A-Za-zÀ-ÿ-']*[A-Za-zÀ-ÿ]+)*)|(\|[^|]*\|)|([^A-Za-zÀ-ÿ|]+)")
 
 
 def english_text_preprocessing(text, lower=True):
